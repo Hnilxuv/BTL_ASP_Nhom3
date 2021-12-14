@@ -11,7 +11,7 @@ namespace Nhom3.Areas.Admin.Controllers
 {
     public class LoginController : Controller
     {
-        Nhom3DB db = new Nhom3DB();
+        Nhom3Db db = new Nhom3Db();
         // GET: Admin/Login
         [HttpGet]
         public ActionResult Index()

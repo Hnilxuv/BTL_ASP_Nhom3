@@ -237,3 +237,4 @@ D:\Learning_Data\ASP\Project\BTL_ASP_Nhom3\Nhom3\Nhom3\obj\Debug\Nhom3.csproj.Co
 D:\Learning_Data\ASP\Project\BTL_ASP_Nhom3\Nhom3\Nhom3\obj\Debug\Nhom3.csproj.CopyComplete
 D:\Learning_Data\ASP\Project\BTL_ASP_Nhom3\Nhom3\Nhom3\obj\Debug\Nhom3.dll
 D:\Learning_Data\ASP\Project\BTL_ASP_Nhom3\Nhom3\Nhom3\obj\Debug\Nhom3.pdb
+D:\Learning_Data\ASP\Project\BTL_ASP_Nhom3\Nhom3\Nhom3\obj\Debug\Nhom3.csproj.AssemblyReference.cache

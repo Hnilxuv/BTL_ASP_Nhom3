@@ -12,7 +12,7 @@ namespace Nhom3.Areas.Admin.Controllers
 {
     public class ProductController : BaseController
     {
-        Nhom3DB db = new Nhom3DB();
+        Nhom3Db db = new Nhom3Db();
         // GET: Admin/Product
         [HttpGet]
         public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
@@ -29,16 +29,17 @@ namespace Nhom3.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public JsonResult Create(string sanpham, string chiTiets, HttpPostedFileBase hinhanh)
+        public JsonResult Create(string sanpham, HttpPostedFileBase hinhanh)
         {
+            TaiKhoanQuanTri tk = (TaiKhoanQuanTri)Session[Nhom3.Session.ConstaintUser.ADMIN_SESSION];
             try
             {
                 JavaScriptSerializer convert = new JavaScriptSerializer();
                 SanPham sp = convert.Deserialize<SanPham>(sanpham);
                 //List<SanPhamChiTiet> sanPhamChiTiets = convert.Deserialize<List<SanPhamChiTiet>>(chiTiets);
-                TaiKhoanQuanTri tk = (TaiKhoanQuanTri)Session[Nhom3.Session.ConstaintUser.ADMIN_SESSION];
+
                 var f = hinhanh;
-                if(f != null && f.ContentLength > 0)
+                if (f != null && f.ContentLength > 0)
                 {
                     string fileName = new Random().Next() + System.IO.Path.GetFileName(f.FileName);
                     string uploadPath = Server.MapPath("~/UserImage/images/" + fileName);
@@ -55,7 +56,7 @@ namespace Nhom3.Areas.Admin.Controllers
                 sp.NguoiSua = tk.HoTen;
                 db.SanPhams.Add(sp);
                 db.SaveChanges();
-                int masp = sp.MaSP;
+                //int masp = sp.MaSP;
                 //foreach(SanPhamChiTiet spct in sanPhamChiTiets)
                 //{
                 //    spct.MaSP = masp;
@@ -73,6 +74,7 @@ namespace Nhom3.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Update(string sanpham, HttpPostedFileBase hinhanh)
         {
+
             try
             {
                 JavaScriptSerializer convert = new JavaScriptSerializer();
@@ -99,7 +101,7 @@ namespace Nhom3.Areas.Admin.Controllers
                 update.NguoiSua = tk.HoTen;
                 db.Entry(update).State = EntityState.Modified;
                 db.SaveChanges();
-                
+
                 return Json(new { status = true, message = "Sửa thông tin thành công!" });
             }
             catch (Exception ex)

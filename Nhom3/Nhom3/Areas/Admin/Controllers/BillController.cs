@@ -11,7 +11,7 @@ namespace Nhom3.Areas.Admin.Controllers
 {
     public class BillController : BaseController
     {
-        Nhom3DB db = new Nhom3DB();
+        Nhom3Db db = new Nhom3Db();
         // GET: Admin/Bill
         [HttpGet]
         public ActionResult Index(DateTime? searchString,int? status ,int page = 1, int pageSize = 10)

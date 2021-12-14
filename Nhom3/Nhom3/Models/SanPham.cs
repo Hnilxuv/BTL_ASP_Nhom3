@@ -59,6 +59,8 @@ namespace Nhom3.Models
         [StringLength(150)]
         public string HinhAnh { get; set; }
 
+        public int SoLuong { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
 

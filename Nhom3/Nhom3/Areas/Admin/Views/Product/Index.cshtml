@@ -1,12 +1,11 @@
 ﻿@model PagedList.IPagedList<Nhom3.Models.SanPham>
 @using PagedList.Mvc;
+
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css">
-@{
-    ViewBag.Title = "Sản phẩm";
+@{ ViewBag.Title = "Sản phẩm";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
     Nhom3.Models.TaiKhoanQuanTri tk = (Nhom3.Models.TaiKhoanQuanTri)HttpContext.Current.Session[Nhom3.Session.ConstaintUser.ADMIN_SESSION];
-    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
-}
+    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN"); }
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
     <div class="d-block mb-4 mb-md-0">
         <h2 class="h4">Danh sách sản phẩm</h2>
@@ -49,60 +48,57 @@
         </thead>
         <tbody>
             @foreach (var item in Model)
-            {
-                <!-- Item -->
-                <tr id="row-@item.MaSP">
-                    <td>
-                        <span class="font-weight-normal">@item.DanhMuc.TenDanhMuc</span>
-                    </td>
-                    <td>
-                        <div class="image-clothes">
-                            <img src="@item.HinhAnh" width="200" alt="Hình ảnh" />
-                        </div>
-                    </td>
-                    <td>
-                        <span class="font-weight-bold">@item.TenSP</span>
-                    </td>
-                    <td>
-                        <span class="font-weight-normal">@item.NgayTao</span>
-                    </td>
-                    <td>
-                        <span class="font-weight-bold">@item.NguoiTao</span>
-                    </td>
-                    <td>
-                        <span class="font-weight-bold">@string.Format(info, "{0:c0}", item.Gia)</span>
-                    </td>
-                    <td class="td-color-clothes">
-                        <span class="font-weight-bold color-clothes color-clothes-second">
-                            <input type="color" value="@item.MaMau.Trim()" disabled />
-                        </span>
-                    </td>
+            {<!-- Item -->
+                                <tr id="row-@item.MaSP">
+                                    <td>
+                                        <span class="font-weight-normal">@item.DanhMuc.TenDanhMuc</span>
+                                    </td>
+                                    <td>
+                                        <div class="image-clothes">
+                                            <img src="@item.HinhAnh" width="200" alt="Hình ảnh" />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="font-weight-bold">@item.TenSP</span>
+                                    </td>
+                                    <td>
+                                        <span class="font-weight-normal">@item.NgayTao</span>
+                                    </td>
+                                    <td>
+                                        <span class="font-weight-bold">@item.NguoiTao</span>
+                                    </td>
+                                    <td>
+                                        <span class="font-weight-bold">@string.Format(info, "{0:c0}", item.Gia)</span>
+                                    </td>
+                                    <td class="td-color-clothes">
+                                        <span class="font-weight-bold color-clothes color-clothes-second">
+                                            <input type="color" value="@item.MaMau.Trim()" disabled />
+                                        </span>
+                                    </td>
 
-                    <td>
-                        <span class="font-weight-bold">@item.NgaySua</span>
-                    </td>
-                    <td>
-                        <span class="font-weight-bold">@item.NguoiSua</span>
-                    </td>
-                    <td>
-                        <div class="btn-group">
-                            <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="icon icon-sm">
-                                    <span class="fas fa-ellipsis-h icon-dark"></span>
-                                </span>
-                                <span class="sr-only">Danh mục lựa chọn</span>
-                            </button>
-                            <div class="dropdown-menu">
-                                <button class="dropdown-item change" onclick="loadData(@item.MaSP)"><span class="fas fa-edit mr-2"></span>Chỉnh sửa</button>
-                                @if (tk.LoaiTaiKhoan)
-                                {
-                                    <button class="dropdown-item text-danger delete" onclick="deleteData(@item.MaSP)"><span class="fas fa-trash-alt mr-2"></span>Xóa</button>
-                                }
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            }
+                                    <td>
+                                        <span class="font-weight-bold">@item.NgaySua</span>
+                                    </td>
+                                    <td>
+                                        <span class="font-weight-bold">@item.NguoiSua</span>
+                                    </td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="icon icon-sm">
+                                                    <span class="fas fa-ellipsis-h icon-dark"></span>
+                                                </span>
+                                                <span class="sr-only">Danh mục lựa chọn</span>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <button class="dropdown-item change" onclick="loadData(@item.MaSP)"><span class="fas fa-edit mr-2"></span>Chỉnh sửa</button>
+                                                @if (tk.LoaiTaiKhoan)
+                                                {
+                                <button class="dropdown-item text-danger delete" onclick="deleteData(@item.MaSP)"><span class="fas fa-trash-alt mr-2"></span>Xóa</button>}
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>}
         </tbody>
     </table>
     <div class="card-footer px-3 border-0 d-flex align-items-center justify-content-between">
@@ -111,7 +107,7 @@
                 @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
 
                 @Html.PagedListPager(Model, page => Url.Action("Index",
-                    new { page, pageSize = Model.PageSize, searchString = ViewBag.searchString }))
+                                   new { page, pageSize = Model.PageSize, searchString = ViewBag.searchString }))
             </ul>
         </nav>
     </div>
@@ -131,9 +127,11 @@
                                 <input type="file" id="imageFile" onchange="loadFile(event)">
                             </div>
                         </div>
+
                         <div class="col-md-6 mb-1">
                             <div>
                                 <label for="nameProduct">Tên sản phẩm</label>
+
                                 <input class="form-control" type="text" name="tensp"
                                        placeholder="Tên sản phẩm" required>
                             </div>
@@ -147,8 +145,7 @@
                                         aria-label="category select example" required>
                                     @foreach (var item in ViewBag.Category)
                                     {
-                                        <option value="@item.MaDM">@item.TenDanhMuc</option>
-                                    }
+                    <option value="@item.MaDM">@item.TenDanhMuc</option>}
                                 </select>
                             </div>
                         </div>
@@ -178,23 +175,23 @@
                         </div>
                     </div>
                     @*<div class="row">
-                        <div class="col-md-12 mb-3">
-                            <div>
-                                <label for="size">Kích thước</label>
-                                <div class="list-group d-flex flex-row">
-                                    @foreach (var item in ViewBag.Size)
-                                    {
-                                        <div class="list-group-item justify-content-center align-item d-flex flex-column w-25 form-2">
-                                            <label for="size-@item.TenKichCo" class="text-center">@item.TenKichCo</label>
-                                            <br>
-                                            <input type="hidden" name="makichco" value="@item.MaKichCo" />
-                                            <input class="form-control kichco" type="number" min="0" name="soluong" id="size-@item.TenKichCo" value="0" required>
-                                        </div>
-                                    }
+                            <div class="col-md-12 mb-3">
+                                <div>
+                                    <label for="size">Kích thước</label>
+                                    <div class="list-group d-flex flex-row">
+                                        @foreach (var item in ViewBag.Size)
+                                        {
+                                            <div class="list-group-item justify-content-center align-item d-flex flex-column w-25 form-2">
+                                                <label for="size-@item.TenKichCo" class="text-center">@item.TenKichCo</label>
+                                                <br>
+                                                <input type="hidden" name="makichco" value="@item.MaKichCo" />
+                                                <input class="form-control kichco" type="number" min="0" name="soluong" id="size-@item.TenKichCo" value="0" required>
+                                            </div>
+                                        }
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>*@
+                        </div>*@
                     <div class="row">
                         <div>
                             <label for="note">Mô tả</label>
@@ -204,7 +201,7 @@
                     <div class="row">
                         <div>
                             <label for="note">Nhà sản xuất</label>
-                            <textarea class="form-control" name="huongdan" rows="10" placeholder="Nhà sản xuất" required></textarea>
+                            <textarea class="form-control" name="nsx" rows="2" placeholder="Nhà sản xuất" required></textarea>
                         </div>
                     </div>
                     <p id="add-message"></p>
@@ -251,8 +248,7 @@
                                         aria-label="category select example" required>
                                     @foreach (var item in ViewBag.Category)
                                     {
-                                        <option id="danhmuc-@item.MaDM" value="@item.MaDM">@item.TenDanhMuc</option>
-                                    }
+                    <option id="danhmuc-@item.MaDM" value="@item.MaDM">@item.TenDanhMuc</option>}
                                 </select>
                             </div>
                         </div>
@@ -282,33 +278,33 @@
                         </div>
                     </div>
                     @*<div class="row">
-                        <div class="col-md-12 mb-3">
-                            <div>
-                                <label for="size">Kích thước</label>
-                                <div class="list-group d-flex flex-row">
-                                    @foreach (var item in ViewBag.Size)
-                                    {
-                                        <div class="list-group-item justify-content-center align-item d-flex flex-column w-25 form-update">
-                                            <input type="hidden" id="update-@item.MaKichCo" value="" name="idctsp" />
-                                            <label for="kichco-@item.MaKichCo" class="text-center">@item.TenKichCo</label>
-                                            <br>
-                                            <input class="form-control" type="number" min="0" name="soluong" id="kichco-@item.MaKichCo" value="0">
-                                        </div>
-                                    }
+                            <div class="col-md-12 mb-3">
+                                <div>
+                                    <label for="size">Kích thước</label>
+                                    <div class="list-group d-flex flex-row">
+                                        @foreach (var item in ViewBag.Size)
+                                        {
+                                            <div class="list-group-item justify-content-center align-item d-flex flex-column w-25 form-update">
+                                                <input type="hidden" id="update-@item.MaKichCo" value="" name="idctsp" />
+                                                <label for="kichco-@item.MaKichCo" class="text-center">@item.TenKichCo</label>
+                                                <br>
+                                                <input class="form-control" type="number" min="0" name="soluong" id="kichco-@item.MaKichCo" value="0">
+                                            </div>
+                                        }
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>*@
+                        </div>*@
                     <div class="row">
                         <div>
                             <label for="mota">Mô tả</label>
-                            <textarea class="form-control" id="mota" name="mota" rows="15">Mô tả của sản phẩm</textarea>
+                            <textarea class="form-control" id="mota" name="mota" rows="15" placeholder="Mô tả sản phẩm"></textarea>
                         </div>
                     </div>
                     <div class="row">
                         <div>
                             <label for="huongdan">Nhà sản xuất</label>
-                            <textarea class="form-control" id="huongdan" name="huongdan" rows="10">Nhà sản xuất</textarea>
+                            <textarea class="form-control" id="nxs" name="nxs" rows="3" placeholder="Nhà sản xuất"></textarea>
                         </div>
                     </div>
                     <p id="update-message"></p>

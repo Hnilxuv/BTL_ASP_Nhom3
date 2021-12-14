@@ -2159,9 +2159,8 @@
     <Compile Include="Models\ChiTietHoaDon.cs" />
     <Compile Include="Models\DanhMuc.cs" />
     <Compile Include="Models\HoaDon.cs" />
-    <Compile Include="Models\Nhom3DB.cs" />
+    <Compile Include="Models\Nhom3Db.cs" />
     <Compile Include="Models\SanPham.cs" />
-    <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Models\TaiKhoanNguoiDung.cs" />
     <Compile Include="Models\TaiKhoanQuanTri.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

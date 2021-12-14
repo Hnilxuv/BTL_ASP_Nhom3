@@ -11,7 +11,7 @@ namespace Nhom3.Areas.Admin.Controllers
 {
     public class CategoryController : BaseController
     {
-        Nhom3DB db = new Nhom3DB();
+        Nhom3Db db = new Nhom3Db();
         // GET: Admin/Category
         public ActionResult Index(string searchString, int page = 1, int pageSize = 5)
         {

@@ -5,10 +5,10 @@ using System.Linq;
 
 namespace Nhom3.Models
 {
-    public partial class Nhom3DB : DbContext
+    public partial class Nhom3Db : DbContext
     {
-        public Nhom3DB()
-            : base("name=Nhom3DB")
+        public Nhom3Db()
+            : base("name=Nhom3Db")
         {
         }
 
@@ -16,7 +16,6 @@ namespace Nhom3.Models
         public virtual DbSet<DanhMuc> DanhMucs { get; set; }
         public virtual DbSet<HoaDon> HoaDons { get; set; }
         public virtual DbSet<SanPham> SanPhams { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TaiKhoanNguoiDung> TaiKhoanNguoiDungs { get; set; }
         public virtual DbSet<TaiKhoanQuanTri> TaiKhoanQuanTris { get; set; }
 
