@@ -5,17 +5,19 @@ using System.Linq;
 
 namespace Nhom3.Models
 {
-    public partial class Nhom3Db : DbContext
+    public partial class Nhom3DB : DbContext
     {
-        public Nhom3Db()
-            : base("name=Nhom3Db")
+        public Nhom3DB()
+            : base("name=Nhom3DB")
         {
+            this.Configuration.ProxyCreationEnabled = false;
         }
 
         public virtual DbSet<ChiTietHoaDon> ChiTietHoaDons { get; set; }
         public virtual DbSet<DanhMuc> DanhMucs { get; set; }
         public virtual DbSet<HoaDon> HoaDons { get; set; }
         public virtual DbSet<SanPham> SanPhams { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TaiKhoanNguoiDung> TaiKhoanNguoiDungs { get; set; }
         public virtual DbSet<TaiKhoanQuanTri> TaiKhoanQuanTris { get; set; }
 

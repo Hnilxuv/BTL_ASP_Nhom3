@@ -231,7 +231,6 @@
     <Content Include="Assets\Admin\assets\img\pages\transactions.jpg" />
     <Content Include="Assets\Admin\assets\img\paypal-logo.svg" />
     <Content Include="Assets\Admin\assets\img\profile-cover.jpg" />
-    <Content Include="Assets\Admin\assets\img\team\026e4046d3fd21a378ec - Copy.png" />
     <Content Include="Assets\Admin\assets\img\team\profile-picture-1.jpg" />
     <Content Include="Assets\Admin\assets\img\team\profile-picture-2.jpg" />
     <Content Include="Assets\Admin\assets\img\team\profile-picture-3.jpg" />
@@ -2124,8 +2123,6 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Bill\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2153,14 +2150,21 @@
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Data\LoginAccount.cs" />
+    <Compile Include="Controllers\AccountUserController.cs" />
+    <Compile Include="Controllers\BillController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ChiTietHoaDon.cs" />
     <Compile Include="Models\DanhMuc.cs" />
     <Compile Include="Models\HoaDon.cs" />
-    <Compile Include="Models\Nhom3Db.cs" />
+    <Compile Include="Models\Nhom3DB.cs" />
     <Compile Include="Models\SanPham.cs" />
+    <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Models\TaiKhoanNguoiDung.cs" />
     <Compile Include="Models\TaiKhoanQuanTri.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2202,13 +2206,32 @@
     <Content Include="Assets\Admin\vendor\waypoints\testem.json" />
     <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Bill\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminUser\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ClientUser\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\SignUp.cshtml" />
+    <Content Include="Views\AccountUser\ChangePassWord.cshtml" />
+    <Content Include="Views\AccountUser\UserInfor.cshtml" />
+    <Content Include="Views\Cart\Orders.cshtml" />
+    <Content Include="Views\Cart\CheckOut.cshtml" />
+    <Content Include="Views\Product\Shop.cshtml" />
+    <Content Include="Views\Product\ProductDetail.cshtml" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Views\Error\PageNotFound.cshtml" />
+    <Content Include="Views\Error\Error.cshtml" />
+    <Content Include="Views\Home\SearchBox.cshtml" />
+    <Content Include="Views\Home\DropdownCategories.cshtml" />
+    <Content Include="Views\Home\SelectOptionSize.cshtml" />
+    <Content Include="Views\Home\CartCount.cshtml" />
+    <Content Include="Views\Bill\ListBills.cshtml" />
+    <Content Include="Views\Bill\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2224,7 +2247,6 @@
     <Folder Include="Assets\Admin\vendor\fortawesome\fontawesome-free\scss\" />
     <Folder Include="Assets\Admin\vendor\waypoints\src\" />
     <Folder Include="Assets\Admin\vendor\waypoints\test\" />
-    <Folder Include="Controllers\" />
     <Folder Include="UserImage\images\" />
   </ItemGroup>
   <PropertyGroup>

@@ -12,7 +12,7 @@ namespace Nhom3.Areas.Admin.Controllers
 {
     public class ProductController : BaseController
     {
-        Nhom3Db db = new Nhom3Db();
+        Nhom3DB db = new Nhom3DB();
         // GET: Admin/Product
         [HttpGet]
         public ActionResult Index(string searchString, int page = 1, int pageSize = 10)

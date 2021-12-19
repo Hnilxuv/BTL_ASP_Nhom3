@@ -11,13 +11,13 @@ namespace Nhom3.Areas.Admin.Controllers
 {
     public class BillController : BaseController
     {
-        Nhom3Db db = new Nhom3Db();
+        Nhom3DB db = new Nhom3DB();
         // GET: Admin/Bill
         [HttpGet]
-        public ActionResult Index(DateTime? searchString,int? status ,int page = 1, int pageSize = 10)
+        public ActionResult Index(DateTime? searchString, int? status, int page = 1, int pageSize = 10)
         {
             List<HoaDon> hoaDons = db.HoaDons.Include("TaiKhoanNguoiDung").Select(p => p).ToList();
-            if(status != null)
+            if (status != null)
             {
                 hoaDons = hoaDons.Where(x => x.TrangThai == status).ToList();
                 ViewBag.Status = status;
@@ -39,7 +39,7 @@ namespace Nhom3.Areas.Admin.Controllers
             IEnumerable<ChiTietHoaDon> chiTietHoaDons = db.ChiTietHoaDons.Include("SanPham")
                 .Where(x => x.MaHD == id);
             List<SanPham> list = new List<SanPham>();
-            foreach(ChiTietHoaDon item in chiTietHoaDons)
+            foreach (ChiTietHoaDon item in chiTietHoaDons)
             {
                 list.Add(db.SanPhams.Where(x => x.MaSP == item.MaSP).FirstOrDefault());
             }

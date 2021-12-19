@@ -98,7 +98,8 @@
                                             </div>
                                         </div>
                                     </td>
-                                </tr>}
+                                </tr>
+}
         </tbody>
     </table>
     <div class="card-footer px-3 border-0 d-flex align-items-center justify-content-between">
@@ -107,7 +108,7 @@
                 @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
 
                 @Html.PagedListPager(Model, page => Url.Action("Index",
-                                   new { page, pageSize = Model.PageSize, searchString = ViewBag.searchString }))
+                                        new { page, pageSize = Model.PageSize, searchString = ViewBag.searchString }))
             </ul>
         </nav>
     </div>
@@ -145,7 +146,8 @@
                                         aria-label="category select example" required>
                                     @foreach (var item in ViewBag.Category)
                                     {
-                    <option value="@item.MaDM">@item.TenDanhMuc</option>}
+                    <option value="@item.MaDM">@item.TenDanhMuc</option>
+}
                                 </select>
                             </div>
                         </div>
@@ -248,7 +250,8 @@
                                         aria-label="category select example" required>
                                     @foreach (var item in ViewBag.Category)
                                     {
-                    <option id="danhmuc-@item.MaDM" value="@item.MaDM">@item.TenDanhMuc</option>}
+                    <option id="danhmuc-@item.MaDM" value="@item.MaDM">@item.TenDanhMuc</option>
+}
                                 </select>
                             </div>
                         </div>

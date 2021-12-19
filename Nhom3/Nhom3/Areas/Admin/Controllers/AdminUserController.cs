@@ -11,12 +11,12 @@ namespace Nhom3.Areas.Admin.Controllers
 {
     public class AdminUserController : BaseController
     {
-        Nhom3Db db = new Nhom3Db();
+        Nhom3DB db = new Nhom3DB();
         // GET: Admin/AdminUser
         public ActionResult Index(string searchString, int page = 1, int pageSize = 5)
         {
             TaiKhoanQuanTri ses = (TaiKhoanQuanTri)Session[Nhom3.Session.ConstaintUser.ADMIN_SESSION];
-            if(ses.LoaiTaiKhoan == false)
+            if (ses.LoaiTaiKhoan == false)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -26,7 +26,7 @@ namespace Nhom3.Areas.Admin.Controllers
             {
                 taikhoans = taikhoans.Where(tk => tk.TenDangNhap.Contains(searchString));
             }
-            return View(taikhoans.OrderBy(tk => tk.ID).ToPagedList(page,pageSize));
+            return View(taikhoans.OrderBy(tk => tk.ID).ToPagedList(page, pageSize));
         }
 
         [HttpPost]
@@ -35,7 +35,7 @@ namespace Nhom3.Areas.Admin.Controllers
             try
             {
                 TaiKhoanQuanTri check = db.TaiKhoanQuanTris.Where(a => a.TenDangNhap.Equals(tk.TenDangNhap)).FirstOrDefault();
-                if(check != null)
+                if (check != null)
                 {
                     return Json(new { status = false, message = "Tên đăng nhập đã tồn tại!" });
                 }

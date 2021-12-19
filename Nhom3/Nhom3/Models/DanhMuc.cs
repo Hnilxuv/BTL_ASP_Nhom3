@@ -5,6 +5,7 @@ namespace Nhom3.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Web.Script.Serialization;
 
     [Table("DanhMuc")]
     public partial class DanhMuc
@@ -34,6 +35,7 @@ namespace Nhom3.Models
         [StringLength(100)]
         public string NguoiSua { get; set; }
 
+        [ScriptIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SanPham> SanPhams { get; set; }
     }
