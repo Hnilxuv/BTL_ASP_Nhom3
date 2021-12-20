@@ -97,8 +97,10 @@ namespace Nhom3.Areas.Admin.Controllers
                 update.MaMau = sp.MaMau;
                 update.ChatLieu = sp.ChatLieu;
                 update.NSX = sp.NSX;
+                update.SoLuong = sp.SoLuong;
                 update.NgaySua = DateTime.Now;
                 update.NguoiSua = tk.HoTen;
+                
                 db.Entry(update).State = EntityState.Modified;
                 db.SaveChanges();
 

@@ -41,6 +41,8 @@
                 <th>Người nhập</th>
                 <th>Giá</th>
                 <th>Màu sắc</th>
+                <th>Chất liệu</th>
+                <th>Số lượng</th>
                 <th>Ngày sửa</th>
                 <th>Người sửa</th>
                 <th>Tùy chọn</th>
@@ -75,7 +77,12 @@
                                             <input type="color" value="@item.MaMau.Trim()" disabled />
                                         </span>
                                     </td>
-
+                                    <td>
+                                        <span class="font-weight-bold">@item.ChatLieu</span>
+                                    </td>
+                                    <td>
+                                        <span class="font-weight-bold">@item.SoLuong</span>
+                                    </td>
                                     <td>
                                         <span class="font-weight-bold">@item.NgaySua</span>
                                     </td>
@@ -194,6 +201,14 @@
                                 </div>
                             </div>
                         </div>*@
+                    <div class="col-md-6 mb-1">
+                        <div>
+                            <label for="soluong">Số lượng</label>
+                            <input class="form-control" type="number" name="soluong"
+                                   min="0" step="any" value="0" required>
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div>
                             <label for="note">Mô tả</label>
@@ -202,7 +217,7 @@
                     </div>
                     <div class="row">
                         <div>
-                            <label for="note">Nhà sản xuất</label>
+                            <label for="nxs">Nhà sản xuất</label>
                             <textarea class="form-control" name="nsx" rows="2" placeholder="Nhà sản xuất" required></textarea>
                         </div>
                     </div>
@@ -298,6 +313,13 @@
                                 </div>
                             </div>
                         </div>*@
+
+                    <div class="col-md-6 mb-1">
+                        <div>
+                            <label for="soluong">Số lượng</label>
+                            <input class="form-control" type="number" name="soluong" min="0" step="any" value="0" required>
+                        </div>
+                    </div>
                     <div class="row">
                         <div>
                             <label for="mota">Mô tả</label>
@@ -306,7 +328,7 @@
                     </div>
                     <div class="row">
                         <div>
-                            <label for="huongdan">Nhà sản xuất</label>
+                            <label for="nxs">Nhà sản xuất</label>
                             <textarea class="form-control" id="nxs" name="nxs" rows="3" placeholder="Nhà sản xuất"></textarea>
                         </div>
                     </div>

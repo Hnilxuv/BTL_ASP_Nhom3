@@ -41,7 +41,7 @@ namespace Nhom3.Controllers
         [HttpPost]
         public JsonResult Index(int id)
         {
-            SanPham sp = db.SanPhams.Include("DanhMuc").Include("SanPhamChiTiets").Where(s => s.MaSP.Equals(id)).FirstOrDefault();
+            SanPham sp = db.SanPhams.Include("DanhMuc").Where(s => s.MaSP.Equals(id)).FirstOrDefault();
             return Json(sp, JsonRequestBehavior.AllowGet);
         }
 

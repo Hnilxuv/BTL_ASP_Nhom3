@@ -11,10 +11,10 @@ function loadSanPham(id) {
             $("#modal-danhmuc").html(response.DanhMuc.TenDanhMuc);
             $("#modal-gia").html(response.Gia.toLocaleString('it-IT', { style: 'currency', currency: 'VND' }));
             $("#modal-mamau").val(response.MaMau.trim());
-            $.each(response.SanPhamChiTiets, function (index) {
-                $("#kichco-soluong-" + response.SanPhamChiTiets[index].MaKichCo).val(response.SanPhamChiTiets[index].IDCTSP);
-            })
-            if (response.SanPhamChiTiets[0].SoLuong == 0) {
+            //$.each(response.SanPhamChiTiets, function (index) {
+            //    $("#kichco-soluong-" + response.SanPhamChiTiets[index].MaKichCo).val(response.SanPhamChiTiets[index].IDCTSP);
+            //})
+            if (response.SoLuong == 0) {
                 $("#order-text").html("Hết hàng ! Hãy chọn kích cỡ khác");
                 $("#order-text").attr("disabled", "disabled");
             }

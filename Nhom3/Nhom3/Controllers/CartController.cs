@@ -63,7 +63,7 @@ namespace Nhom3.Controllers
             list.RemoveAll((x) => x.SoLuongMua <= 0);
             foreach (ChiTietHoaDon item in list)
             {
-                item.GiaMua = db.SanPhams.Include("SanPham").Where(s => s.MaSP == item.MaSP).FirstOrDefault().Gia;
+                item.GiaMua = db.SanPhams.Where(s => s.MaSP == item.MaSP).FirstOrDefault().Gia;
             }
             Session[Nhom3.Session.ConstainCart.CART] = list;
             return Json(new { status = true, cart = list }, JsonRequestBehavior.AllowGet);
@@ -91,7 +91,7 @@ namespace Nhom3.Controllers
             ViewBag.TaiKhoan = tk;
             foreach (ChiTietHoaDon item in ses)
             {
-                list.Add(db.SanPhams.Include("SanPham").Include("KichCo").Where(s => s.MaSP == item.MaSP).FirstOrDefault());
+                list.Add(db.SanPhams.Include("SanPham").Where(s => s.MaSP == item.MaSP).FirstOrDefault());
             }
             for (int i = 0; i < list.Count; i++)
             {

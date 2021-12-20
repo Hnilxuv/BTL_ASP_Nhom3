@@ -5,6 +5,7 @@ namespace Nhom3.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Web.Script.Serialization;
 
     [Table("ChiTietHoaDon")]
     public partial class ChiTietHoaDon
@@ -24,6 +25,7 @@ namespace Nhom3.Models
         [Column(TypeName = "money")]
         public decimal GiaMua { get; set; }
 
+        [ScriptIgnore]
         public virtual HoaDon HoaDon { get; set; }
 
         public virtual SanPham SanPham { get; set; }

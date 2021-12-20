@@ -13,13 +13,11 @@ function loadData(id) {
             $("#danhmuc").val(response.MaDM);
             $("#chatlieu").val(response.ChatLieu);
             $("#mamau").val(response.MaMau.trim());
+            $("#soluong").val(response.soluong);
             $("#displaycolor").css('backgroundColor', response.MaMau.trim());
             $("#mota").val(response.MoTa);
             $("#huongdan").val(response.HuongDan);
-            $.each(response.SanPhamChiTiets, function (index) {
-                $("#update-" + response.SanPhamChiTiets[index].MaKichCo).val(response.SanPhamChiTiets[index].IDCTSP);
-                $("#kichco-" + response.SanPhamChiTiets[index].MaKichCo).val(response.SanPhamChiTiets[index].SoLuong);
-            })
+        
         },
         error: function (response) {
             //debugger;  
@@ -39,12 +37,12 @@ function themSanPham() {
     $.each(formData, function (index, value) {
         sanpham["" + value.name + ""] = value.value;
     });
-    $(".form-2").each(function () {
-        chitiets.push({
-            "makichco": $(this).children('input[name="makichco"]').val(),
-            "soluong": $(this).children('input[name="soluong"]').val()
-        });
-    })
+    //$(".form-2").each(function () {
+    //    chitiets.push({
+    //        "makichco": $(this).children('input[name="makichco"]').val(),
+    //        "soluong": $(this).children('input[name="soluong"]').val()
+    //    });
+    //})
     let image = $("#imageFile").prop("files")[0];
     form.append("sanpham", JSON.stringify(sanpham));
     form.append("chitiets", JSON.stringify(chitiets));
@@ -88,15 +86,15 @@ function suaSanPham() {
     $.each(formData, function (index, value) {
         sanpham["" + value.name + ""] = value.value;
     });
-    $(".form-update").each(function () {
-        chitiets.push({
-            "idctsp": $(this).children('input[name="idctsp"]').val(),
-            "soluong": $(this).children('input[name="soluong"]').val()
-        });
-    })
+    //$(".form-update").each(function () {
+    //    chitiets.push({
+    //        "idctsp": $(this).children('input[name="idctsp"]').val(),
+    //        "soluong": $(this).children('input[name="soluong"]').val()
+    //    });
+    //})
     let image = $("#updateImage").prop("files")[0];
     form.append("sanpham", JSON.stringify(sanpham));
-    form.append("chitiets", JSON.stringify(chitiets));
+    /*form.append("chitiets", JSON.stringify(chitiets));*/
     form.append("hinhanh", image);
     $.ajax({
         url: '/Admin/Product/Update',
