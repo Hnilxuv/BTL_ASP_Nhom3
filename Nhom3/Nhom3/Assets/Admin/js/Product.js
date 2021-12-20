@@ -13,10 +13,11 @@ function loadData(id) {
             $("#danhmuc").val(response.MaDM);
             $("#chatlieu").val(response.ChatLieu);
             $("#mamau").val(response.MaMau.trim());
-            $("#soluong").val(response.soluong);
+            $("#soluong").val(response.SoLuong);
             $("#displaycolor").css('backgroundColor', response.MaMau.trim());
             $("#mota").val(response.MoTa);
             $("#huongdan").val(response.HuongDan);
+            $("#nsx").val(response.NSX);
         
         },
         error: function (response) {

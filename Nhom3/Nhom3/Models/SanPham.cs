@@ -64,7 +64,7 @@ namespace Nhom3.Models
         [ScriptIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
-        [ScriptIgnore]
+        
         public virtual DanhMuc DanhMuc { get; set; }
     }
 }

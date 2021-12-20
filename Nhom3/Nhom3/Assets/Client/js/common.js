@@ -53,7 +53,7 @@ $(document).on("change", "#modal-kichco-soluong", function () {
 
 //Ajax thêm sp vào giỏ hàng
 function themVaoGioHang() {
-    let idctsp = $("#modal-kichco-soluong").val();
+    let idctsp = $("#modal-masp").val();
     let soluong = $("#modal-soluong").val();
     $.ajax({
         type: 'POST',

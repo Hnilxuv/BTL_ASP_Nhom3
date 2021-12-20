@@ -33,6 +33,7 @@ namespace Nhom3.Controllers
         [HttpPost]
         public JsonResult AddToCart(ChiTietHoaDon chiTiet)
         {
+
             if (chiTiet.SoLuongMua > db.SanPhams.Where(x => x.MaSP == chiTiet.MaSP).FirstOrDefault().SoLuong)
             {
                 return Json(new { status = false }, JsonRequestBehavior.AllowGet);

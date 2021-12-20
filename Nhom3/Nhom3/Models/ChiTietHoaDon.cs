@@ -27,7 +27,7 @@ namespace Nhom3.Models
 
         [ScriptIgnore]
         public virtual HoaDon HoaDon { get; set; }
-
+        
         public virtual SanPham SanPham { get; set; }
     }
 }
