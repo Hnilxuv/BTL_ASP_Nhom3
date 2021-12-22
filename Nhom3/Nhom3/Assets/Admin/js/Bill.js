@@ -118,7 +118,7 @@ function loadDuLieuChiTiet(id) {
                     + "<td>" + response.sp[index].TenSP + "</td>"
                     + "<td>" + response.cthd[index].GiaMua.toLocaleString('it-IT', { style: 'currency', currency: 'VND' }) + "</td>"
                     + "<td>" + response.cthd[index].SoLuongMua + "</td>"
-                    + "<td>" + response.cthd[index].SanPhamChiTiet.KichCo.TenKichCo + "</td>"
+                    
                     + "<td>" + (response.cthd[index].GiaMua * response.cthd[index].SoLuongMua).toLocaleString('it-IT', { style: 'currency', currency: 'VND' }) + "</td>"
                     + "</tr>"
                 );
@@ -126,10 +126,12 @@ function loadDuLieuChiTiet(id) {
             })
             $("#hd-body").append("<tr><td></td><td></td><td></td><td></td><td>Tổng tiền : </td><td>" + total.toLocaleString("it-IT", { style: 'currency', currency: 'VND' }) + "</td></tr>");
         },
+        console.log(hoadon.TaiKhoanNguoiDung.HoTen);
         error: function (response) {
             //debugger;  
             console.log(xhr.responseText);
             alert("Error has occurred..");
         }
+        
     });
 }

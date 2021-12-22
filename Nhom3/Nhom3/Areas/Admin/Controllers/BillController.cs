@@ -36,8 +36,7 @@ namespace Nhom3.Areas.Admin.Controllers
         {
             HoaDon hd = db.HoaDons.Include("TaiKhoanNguoiDung")
                 .Where(x => x.MaHD == id).FirstOrDefault();
-            IEnumerable<ChiTietHoaDon> chiTietHoaDons = db.ChiTietHoaDons.Include("SanPham")
-                .Where(x => x.MaHD == id);
+            IEnumerable<ChiTietHoaDon> chiTietHoaDons = db.ChiTietHoaDons.Include("SanPham").Where(x => x.MaHD == id);
             List<SanPham> list = new List<SanPham>();
             foreach (ChiTietHoaDon item in chiTietHoaDons)
             {

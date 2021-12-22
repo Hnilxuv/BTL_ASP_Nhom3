@@ -20,7 +20,8 @@ namespace Nhom3.Controllers
                 List<ChiTietHoaDon> ses = (List<ChiTietHoaDon>)Session[Nhom3.Session.ConstainCart.CART];
                 foreach (ChiTietHoaDon item in ses)
                 {
-                    list.Add(db.SanPhams.Include("SanPham").Where(s => s.MaSP == item.MaSP).FirstOrDefault());
+                    var sanpham = db.SanPhams.Find(item.MaSP);
+                    list.Add(sanpham);
                 }
                 for (int i = 0; i < list.Count; i++)
                 {
@@ -92,7 +93,8 @@ namespace Nhom3.Controllers
             ViewBag.TaiKhoan = tk;
             foreach (ChiTietHoaDon item in ses)
             {
-                list.Add(db.SanPhams.Include("SanPham").Where(s => s.MaSP == item.MaSP).FirstOrDefault());
+                var sp = db.SanPhams.Find(item.MaSP);
+                list.Add(sp);
             }
             for (int i = 0; i < list.Count; i++)
             {

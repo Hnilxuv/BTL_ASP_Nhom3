@@ -1,4 +1,7 @@
 ﻿//Load sản phẩm lên modal
+
+let id;
+
 function loadSanPham(id) {
     $.ajax({
         type: 'POST',
@@ -11,11 +14,12 @@ function loadSanPham(id) {
             $("#modal-danhmuc").html(response.DanhMuc.TenDanhMuc);
             $("#modal-gia").html(response.Gia.toLocaleString('it-IT', { style: 'currency', currency: 'VND' }));
             $("#modal-mamau").val(response.MaMau.trim());
-            //$.each(response.SanPhamChiTiets, function (index) {
-            //    $("#kichco-soluong-" + response.SanPhamChiTiets[index].MaKichCo).val(response.SanPhamChiTiets[index].IDCTSP);
-            //})
+         
+            $("#masp").val(response.MaSP);
+              
+            
             if (response.SoLuong == 0) {
-                $("#order-text").html("Hết hàng ! Hãy chọn kích cỡ khác");
+                $("#order-text").html("Hết hàng !");
                 $("#order-text").attr("disabled", "disabled");
             }
         },
@@ -27,38 +31,16 @@ function loadSanPham(id) {
     });
 }
 
-//Ajax load số lượng theo size
-$(document).on("change", "#modal-kichco-soluong", function () {
-    let id = $(this).val();
-    $.ajax({
-        type: 'POST',
-        data: { "id": id },
-        url: '/Product/Detail',
-        success: function (response) {
-            if (response.SoLuong > 0) {
-                $("#order-text").html("Thêm vào giỏ");
-                $("#order-text").removeAttr("disabled");
-            } else {
-                $("#order-text").html("Hết hàng ! Hãy chọn kích cỡ khác");
-                $("#order-text").attr("disabled", "disabled");
-            }
-        },
-        error: function (response) {
-            //debugger;  
-            console.log(xhr.responseText);
-            alert("Error has occurred..");
-        }
-    });
-});
 
 //Ajax thêm sp vào giỏ hàng
 function themVaoGioHang() {
-    let idctsp = $("#modal-masp").val();
+    let idctsp = $("#masp").val();
+    console.log(idctsp);
     let soluong = $("#modal-soluong").val();
     $.ajax({
         type: 'POST',
         contentType: 'application/json',
-        data: JSON.stringify({ "idctsp": idctsp, "soluongmua": soluong }),
+        data: JSON.stringify({ "masp": idctsp, "soluongmua": soluong }),
         url: '/Cart/AddToCart',
         success: function (response) {
             if (!response.status) {

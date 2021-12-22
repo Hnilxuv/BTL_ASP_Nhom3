@@ -1,4 +1,4 @@
-﻿@model List<Nhom3.Models.SanPhamChiTiet>
+﻿@model List<Nhom3.Models.SanPham>
 @{
     ViewBag.Title = "Đặt hàng";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -75,7 +75,7 @@
                                 {
                                     <tr class="cart_item">
                                         <td class="product-name">
-                                            @item.SanPham.TenSP <span class="product-quantity">x @item.ChiTietHoaDons.First().SoLuongMua</span>
+                                            @item.TenSP <span class="product-quantity">x @item.ChiTietHoaDons.First().SoLuongMua</span>
                                         </td>
                                         <td class="product-total">
                                             <span class="amount">@(string.Format(info,"{0:c0}", item.ChiTietHoaDons.First().GiaMua * item.ChiTietHoaDons.First().SoLuongMua))</span>
