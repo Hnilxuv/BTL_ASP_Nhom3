@@ -34,13 +34,6 @@ namespace Nhom3.Controllers
             return PartialView(danhmucs);
         }
 
-        //[ChildActionOnly]
-        //public ActionResult SelectOptionSize()
-        //{
-        //    IEnumerable<KichCo> kichCos = db.KichCoes.Select(p => p);
-        //    return PartialView(kichCos);
-        //}
-
         [ChildActionOnly]
         public ActionResult CartCount()
         {

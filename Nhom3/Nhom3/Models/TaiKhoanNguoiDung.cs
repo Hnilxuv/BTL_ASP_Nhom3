@@ -5,6 +5,7 @@ namespace Nhom3.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Web.Script.Serialization;
 
     [Table("TaiKhoanNguoiDung")]
     public partial class TaiKhoanNguoiDung
@@ -48,6 +49,7 @@ namespace Nhom3.Models
 
         public bool TrangThai { get; set; }
 
+        [ScriptIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HoaDon> HoaDons { get; set; }
     }

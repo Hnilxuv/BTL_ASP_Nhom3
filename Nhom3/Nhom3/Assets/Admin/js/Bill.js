@@ -55,6 +55,7 @@ function huyDonHang(id) {
 
 function doiTrangThai(id) {
     let tt = $("#hd-trangthai-update-" + id).val();
+    
     $.ajax({
         type: 'POST',
         data: { "mahd": id, "stt": tt },
@@ -126,7 +127,7 @@ function loadDuLieuChiTiet(id) {
             })
             $("#hd-body").append("<tr><td></td><td></td><td></td><td></td><td>Tổng tiền : </td><td>" + total.toLocaleString("it-IT", { style: 'currency', currency: 'VND' }) + "</td></tr>");
         },
-        console.log(hoadon.TaiKhoanNguoiDung.HoTen);
+        
         error: function (response) {
             //debugger;  
             console.log(xhr.responseText);

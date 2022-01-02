@@ -5,8 +5,9 @@ namespace Nhom3.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-
+    
     [Table("HoaDon")]
+ 
     public partial class HoaDon
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]

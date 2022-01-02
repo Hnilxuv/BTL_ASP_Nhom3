@@ -36,13 +36,14 @@ namespace Nhom3.Areas.Admin.Controllers
         {
             HoaDon hd = db.HoaDons.Include("TaiKhoanNguoiDung")
                 .Where(x => x.MaHD == id).FirstOrDefault();
-            IEnumerable<ChiTietHoaDon> chiTietHoaDons = db.ChiTietHoaDons.Include("SanPham").Where(x => x.MaHD == id);
+  
+            List<ChiTietHoaDon> chiTietHoaDons = db.ChiTietHoaDons.Include("SanPham").Where(x => x.MaHD == id).ToList();
             List<SanPham> list = new List<SanPham>();
             foreach (ChiTietHoaDon item in chiTietHoaDons)
             {
                 list.Add(db.SanPhams.Where(x => x.MaSP == item.MaSP).FirstOrDefault());
             }
-            return Json(new { hoadon = hd, cthd = chiTietHoaDons, sp = list }, JsonRequestBehavior.AllowGet);
+            return Json(new {  hoadon = hd, cthd = chiTietHoaDons, sp = list }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
